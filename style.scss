@@ -7,3 +7,54 @@
 body{
     box-sizing: border-box;
 }
+
+.slider{
+    &__button{
+        outline: 0;
+        height: fit-content;
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        background-color: #41b883;
+        color: #ffffff;
+        border: none;
+        position: absolute;
+        transition: background-color .1s ease-in;
+        &:hover{
+            background-color: #035c34;
+            transition: background-color .1s ease-in;
+        }
+        &:disabled{
+            cursor: default;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+        &::before{
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            border: 2px solid #ffffff;
+            border-bottom: 0;
+            border-right: 0;
+            height: 20px;
+            width: 20px;
+        }
+        &--prev{
+            left:0;
+            &:before{
+                transform: translate(100%, 75%) rotate(-45deg);
+            }
+        }
+        &--next{
+            right: 0;
+            &:before{
+                transform: translate(50%, 75%) rotate(135deg);
+            }
+        }
+    }
+    &__caption{
+        text-align: center;
+        font-size: 1.4rem;
+    }
+}
